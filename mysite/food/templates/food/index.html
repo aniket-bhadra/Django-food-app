@@ -1,0 +1,89 @@
+
+{% extends 'food/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'food/style.css' %}">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+    {% block body %}
+    <br><br><br><br><br><br>
+
+
+    {% for item in item_list %}
+
+    <div class="row">
+        <div class="col-md-3 offset-md-2">
+            <img class="card img_itm_indx" src="{{ item.item_image }}">
+    
+        </div>
+        <div class="col-md-4">
+            <h3>{{ item.item_name }}</h3>
+            <h5>{{ item.item_desc }}</h5>
+            <h6>₹{{ item.item_price }}</h6>
+            <h6>Added by <span style="color: #4da6e6;"> {{ item.user_name }} </span></h6>
+            
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Details</a><br><br><br>
+            <a href="{% url 'food:detail' item.id %}" class="btn btn-outline-info">Buynow</a>
+            
+        </div>
+
+    </div>
+    <br>
+    <!-- <style>
+        .jong:hover
+        {
+            background-color: #4da6e6;
+        }
+    </style> -->
+    
+    
+    {% endfor %}
+
+
+
+    
+    {% endblock %}
+
+    <!-- 
+    this is an old code
+
+    
+
+
+    <ul>
+        <li>
+
+          
+            <a href="{% url 'food:detail' item.id %}"> {{ item.id }} -- {{ item.item_name }} </a>
+
+        </li>
+    </ul>
+         -->
+
+
+
+    
+
+</body>
+
+</html>

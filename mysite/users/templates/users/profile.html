@@ -1,0 +1,97 @@
+
+{% extends 'food/base.html' %}
+
+
+
+{% block body %}
+
+
+<br><br><br><br><br><br><br>
+
+<style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+      font-family: arial;
+    }
+    
+    .title {
+      color: grey;
+      font-size: 18px;
+    }
+    
+    button {
+      border: none;
+      outline: 0;
+      display: inline-block;
+      padding: 8px;
+      color: white;
+      background-color: #000;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+    }
+    
+    a {
+      text-decoration: none;
+      font-size: 22px;
+      color: black;
+    }
+    
+    button:hover, a:hover {
+      opacity: 0.7;
+    }
+    </style>
+
+<!-- <br><br><br><br><br>
+<div class="row">
+    <div class="col-md-2 offset-md-4">
+        <h1>{{ user.username }}</h1>
+
+    </div>
+    <div class="col-md-2">
+        <img width="100px" height="100px" src="{{ user.profile.image.url }}">
+
+    </div>
+</div> -->
+
+
+
+
+
+
+<h2 style="text-align:center">My Profile</h2>
+
+<div class="card">
+    <table >
+        <tr>
+            <td>
+                <img style="width: 75%; height: 14%;"  src="{{ user.profile.image.url }}">
+
+            </td>
+            <td>
+                <h1>{{ user.username }}</h1>
+                <h1>{{ user.email }}</h1>
+
+            </td>
+        </tr>
+    </table>
+   
+   <a href="">Orders History</a>
+   <a href=""> Listing History</a>
+   <a href="">Wishlist</a>
+   <div style="margin: 24px 0;">
+    <a href="#"> <i class="fa-solid fa-store" style="color: #4DA6E6;"></i> </a> 
+    <a href="#"> <i class="fa-solid fa-trophy" style="color: #4DA6E6;"></i>  </a>  
+    <a href="#"> <i class="fa-solid fa-heart" style="color: #736FE3;"></i> </a>  
+    <a href="#"> <i class="fa-solid fa-indian-rupee-sign" style="color: #4DA6E6;"></i> </a> 
+  </div>
+ 
+  <a href="http://127.0.0.1:8000/admin/">  <button class="btn btn-primary">Add more details</button> </a>
+</div>
+
+
+{% endblock %}
